@@ -33,7 +33,8 @@
 [0.1.8 (2003-12-14)]
   Displays warning when --bymorpheme is specified but ChaSen is not available (patch by Akira YAMADA: Debian bug #192258).
   Supports system-wide configuration file (if ~/.chasenrc.docdiff does not exist, reads /etc/docdiff/chasenrc) (patch by Akira YAMADA: Debian bug #192261).
-  0.1.7 (2003-11-21)
+
+[0.1.7 (2003-11-21)]
   HTML output retains spaces (&nbsp; patch by Akira YAMADA).
   Manued output is added. Use --manued command line option to get result in Manued-like format.
 Fixed .chasenrc.docdiff to be compatible with the latest ChaSen, so that it does not cause error.
@@ -111,7 +112,8 @@ It supports several encodings and end-of-line characters, including ASCII, UTF-8
 
 == Requirement
 - Ruby
-   (Note that you may need additional ruby library such as iconv and uconv, if your OS's Ruby package does not include those.)
+
+(Note that you may need additional ruby library such as iconv and uconv, if your OS's Ruby package does not include those.)
 
 == Installation
 Note that you need appropriate permission for proper installation (you may have to have a root/administrator privilege).
@@ -166,16 +168,16 @@ See the help message for detail (docdiff --help).
 
 == Example
 
-% cat sample/01.en.ascii.lf
-Hello, my name is Watanabe.
-I am just another Ruby porter.
-% cat sample/02.en.ascii.lf
-Hello, my name is matz.
-It's me who has created Ruby. I am a Ruby hacker.
-% docdiff sample/01.en.ascii.lf sample/02.en.ascii.lf
-Hello, my name is Watanabe.matz.
-It's me who has created Ruby.  I am just another a Ruby porter.hacker.
-%
+  % cat sample/01.en.ascii.lf
+  Hello, my name is Watanabe.
+  I am just another Ruby porter.
+  % cat sample/02.en.ascii.lf
+  Hello, my name is matz.
+  It's me who has created Ruby. I am a Ruby hacker.
+  % docdiff sample/01.en.ascii.lf sample/02.en.ascii.lf
+  Hello, my name is Watanabe.matz.
+  It's me who has created Ruby.  I am just another a Ruby porter.hacker.
+  %
 
 == Configuration
 
@@ -183,7 +185,7 @@ You can place configuration files at:
 
 - /etc/docdiff/docdiff.conf (site-wide configuration)
 - ~/etc/docdiff/docdiff.conf (user configuration)
---  (~/etc/docdiff/docdiff.conf is used by default in order to keep home directory clean, preventing dotfiles and dotdirs from scattering around. Alternatively, you can use ~/.docdiff/docdiff.conf as user configuration file name, following the traditional Unix convention.)
+  -  (~/etc/docdiff/docdiff.conf is used by default in order to keep home directory clean, preventing dotfiles and dotdirs from scattering around. Alternatively, you can use ~/.docdiff/docdiff.conf as user configuration file name, following the traditional Unix convention.)
 
 Notation is as follows (also refer to the file docdiff.conf.example included in the distribution archive):
 
@@ -237,10 +239,12 @@ If you want to use DocDiff as an external diff program from Subversion, the foll
 
 With zsh, you can use DocDiff or other utility to compare arbitrary sources. In the following example, we compare specific revision of foo.html in a repository with one on a website.
 
-  CVS:
+- CVS:
+
   % docdiff =(cvs -Q update -p -r 1.3 foo.html) =(curl --silent http://www.example.org/foo.html)
 
-  Subversion:
+- Subversion:
+
   % docdiff =(svn cat -r3 http://svn.example.org/repos/foo.html) =(curl --silent http://www.example.org/foo.html)
 
 == Comparing Non-plain Text Files Such As HTML or Microsoft Word Documents
@@ -261,31 +265,31 @@ This software is distributed under so-called modified BSD style license (http://
 
 Copyright and condition of use of main portion of the source:
 
-Copyright (C) Hisashi MORITA.  All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
-1. Redistributions of source code must retain the above copyright
-   notice, this list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
-3. Neither the name of the University nor the names of its contributors
-   may be used to endorse or promote products derived from this software
-   without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
-OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
-OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-SUCH DAMAGE.
+  Copyright (C) Hisashi MORITA.  All rights reserved.
+  
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+  1. Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+  3. Neither the name of the University nor the names of its contributors
+     may be used to endorse or promote products derived from this software
+     without specific prior written permission.
+  
+  THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+  FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+  OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+  SUCH DAMAGE.
 
 
 diff library (docdiff/diff.rb and docdiff/diff/*) was originally a part of Ruby/CVS by Akira TANAKA. Ruby/CVS is licensed under modified BSD style license. See the following for detail.
